@@ -16,13 +16,11 @@ spec:
     spec:
       containers:
       - name: app
-        image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:04bd79d
+        image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:dcbdd77
         ports:
         - containerPort: 9080
           name: 9080-tcp
           protocol: TCP
-      imagePullSecrets:
-        - name: mofo-dev-uk-icr-io
       terminationGracePeriodSeconds: 60
       dnsPolicy: ClusterFirst
       serviceAccountName: websphere

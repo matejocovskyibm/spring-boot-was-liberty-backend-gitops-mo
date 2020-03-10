@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:dcbdd77
+        image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:bb81815
         ports:
         - containerPort: 9080
           name: 9080-tcp

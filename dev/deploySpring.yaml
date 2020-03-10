@@ -40,6 +40,8 @@ spec:
     name: spring-boot-liberty
     weight: 100
   wildcardPolicy: None
+status:
+  ingress:
 ---
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
@@ -73,7 +75,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-liberty
-          image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:c5f420e
+          image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:ddef0c8
           imagePullPolicy: Always
           livenessProbe:
             tcpSocket:

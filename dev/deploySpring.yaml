@@ -23,7 +23,7 @@ spec:
   sessionAffinity: None
 ---
 kind: Route
-apiVersion: v1
+apiVersion: route.openshift.io/v1
 metadata:
   name: spring-boot-liberty
   namespace: spring-boot-liberty-dev

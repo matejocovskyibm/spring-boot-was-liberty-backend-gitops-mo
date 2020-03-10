@@ -30,6 +30,7 @@ metadata:
   labels:
     application: spring-boot-liberty
 spec:
+  host:
   to:
     kind: Service
     name: spring-boot-liberty
@@ -39,6 +40,7 @@ spec:
   tls:
     termination: passthrough
   wildcardPolicy: None
+status:
 ---
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
@@ -72,7 +74,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-liberty
-          image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:1654548
+          image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:4419b26
           imagePullPolicy: Always
           livenessProbe:
             tcpSocket:

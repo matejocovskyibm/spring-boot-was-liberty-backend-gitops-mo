@@ -22,6 +22,25 @@ spec:
   type: ClusterIP
   sessionAffinity: None
 ---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app.kubernetes.io/instance: spring-boot-liberty
+    application: spring-boot-liberty
+  name: spring-boot-liberty
+  namespace: spring-boot-liberty-dev
+spec:
+  host: >-
+    spring-boot-liberty-spring-boot-liberty-dev.cp4a-cluster-618682-3cd0ec11030dfa215f262137faf739f1-0001.us-south.containers.appdomain.cloud
+  port:
+    targetPort: 9080-tcp
+  to:
+    kind: Service
+    name: spring-boot-liberty
+    weight: 100
+  wildcardPolicy: None
+---
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
@@ -54,7 +73,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-liberty
-          image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:724364f
+          image: docker-registry.default.svc.cluster.local:5000/spring-boot-liberty-tekton/spring-boot-liberty:c5f420e
           imagePullPolicy: Always
           livenessProbe:
             tcpSocket:

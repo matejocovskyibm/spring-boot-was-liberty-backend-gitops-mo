@@ -23,14 +23,13 @@ spec:
   sessionAffinity: None
 ---
 kind: Route
-apiVersion: route.openshift.io/v1
+apiVersion: v1
 metadata:
   name: spring-boot-liberty
   namespace: spring-boot-liberty-dev
   labels:
     application: spring-boot-liberty
 spec:
-  host:
   to:
     kind: Service
     name: spring-boot-liberty
@@ -40,7 +39,6 @@ spec:
   tls:
     termination: passthrough
   wildcardPolicy: None
-status:
 ---
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1

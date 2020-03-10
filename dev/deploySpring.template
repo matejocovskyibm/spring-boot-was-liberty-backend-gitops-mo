@@ -40,6 +40,8 @@ spec:
     name: spring-boot-liberty
     weight: 100
   wildcardPolicy: None
+status:
+  ingress:
 ---
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
